@@ -1,6 +1,7 @@
 package org.nkosana;
 
 import com.google.gson.Gson;
+import org.nkosana.tools.Message;
 
 public class JsonTest {
     public static void main(String[] args) {

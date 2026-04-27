@@ -5,17 +5,18 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
-import java.util.Scanner;
-import com.google.gson.Gson;
 
-public class ClientHandler implements Runnable {
+import com.google.gson.Gson;
+import org.nkosana.tools.Message;
+
+public class Handler implements Runnable {
     private Socket client;
     private PrintWriter out;
     private BufferedReader in;
 
     Gson gson = new Gson();
 
-    public ClientHandler(Socket clientSocket) {
+    public Handler(Socket clientSocket) {
         this.client = clientSocket;
     }
 
@@ -41,7 +42,7 @@ public class ClientHandler implements Runnable {
                 Message receivedMsg = gson.fromJson(line, Message.class);
 
                 System.out.println("Broadcasting: " + receivedMsg.getSender());
-                ServerSide.broadcast(receivedMsg, this); // Send to everyone else!
+                Server.broadcast(receivedMsg, this); // Send to everyone else!
 
 
 
@@ -49,7 +50,7 @@ public class ClientHandler implements Runnable {
         } catch (IOException e) {
             System.out.println("A client disconnected.");
         } finally {
-            ServerSide.clients.remove(this); // Clean up
+            Server.clients.remove(this); // Clean up
             try { client.close(); } catch (IOException e) {}
         }
     }

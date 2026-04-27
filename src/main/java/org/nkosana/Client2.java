@@ -5,8 +5,9 @@ import java.io.*;
 import java.net.*;
 import java.util.Scanner;
 import com.google.gson.Gson;
+import org.nkosana.tools.Message;
 
-public class Client2Side {
+public class Client2 {
     public static void main(String[] args) {
 
         Gson gson = new Gson();

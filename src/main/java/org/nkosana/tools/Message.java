@@ -1,4 +1,4 @@
-package org.nkosana;
+package org.nkosana.tools;
 
 public class Message {
 
