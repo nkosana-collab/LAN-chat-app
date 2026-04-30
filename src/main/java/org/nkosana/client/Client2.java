@@ -1,4 +1,4 @@
-package org.nkosana;
+package org.nkosana.client;
 
 
 import java.io.*;
@@ -25,8 +25,8 @@ public class Client2 {
                         Message receivedMsg = gson.fromJson(serverMessage, Message.class);
 
 
-                        System.out.println("\nIncoming: " + receivedMsg.getContent());
-                        System.out.print("You: "); // Keep the prompt visible
+                        System.out.println("Incoming: " + receivedMsg.getContent());
+                        System.out.print(""); // Keep the prompt visible
                     }
                 } catch (IOException e) {
                     System.out.println("Connection to server lost.");
@@ -37,7 +37,7 @@ public class Client2 {
             try (PrintWriter out = new PrintWriter(socket.getOutputStream(), true)) {
                 Scanner scanner = new Scanner(System.in);
                 while (true) {
-                    System.out.print("You2: ");
+                    System.out.print("");
                     String userInput = scanner.nextLine();
                     Message reply = new Message("Client:2", userInput, "12:00 PM");
 

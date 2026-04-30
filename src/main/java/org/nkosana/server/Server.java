@@ -1,4 +1,4 @@
-package org.nkosana;
+package org.nkosana.server;
 
 import org.nkosana.tools.Message;
 
