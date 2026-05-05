@@ -7,7 +7,7 @@ import java.util.Scanner;
 import com.google.gson.Gson;
 import org.nkosana.tools.Message;
 
-public class Client2 {
+public class Client {
     public static void main(String[] args) {
 
         Gson gson = new Gson();
@@ -39,7 +39,7 @@ public class Client2 {
                 while (true) {
                     System.out.print("");
                     String userInput = scanner.nextLine();
-                    Message reply = new Message("Client:2", userInput, "12:00 PM");
+                    Message reply = new Message("Client:1", userInput, "12:00 PM");
 
                     //  Serialize: Object -> JSON String
                     String jsonOutput = gson.toJson(reply);
